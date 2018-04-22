@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import main.Game;
 import main.Sprite;
 
 public class TestSubject extends Entity{
@@ -31,7 +32,9 @@ public class TestSubject extends Entity{
 	}
 	
 	public void interact() {
-		System.out.println("Hello its me");
+		Game.game.dialogAdd("Hello, its me. I was wondering if all these times", new Sprite("mage", 1041));
+		Game.game.dialogNext();
+		Game.game.dialogStart();
 	}
 	
 	public void checkHit(Point point) {

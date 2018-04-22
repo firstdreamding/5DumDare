@@ -1,0 +1,67 @@
+package main;
+
+import java.awt.Graphics;
+import java.util.PriorityQueue;
+
+public class Dialog {
+
+	private class TextDia {
+		
+		char[] text;
+		Sprite sprite;
+		int tick;
+		String render;
+		int times;
+		
+		public TextDia(String text, Sprite sprite) {
+			this.text = text.toCharArray();
+			this.sprite = sprite;
+			tick = 0;
+			times = 0;
+			render = "";
+		}
+		
+		public void update() {
+			tick++;
+			if(tick%10 == 0) {
+				times++;
+				if(times < text.length + 1) {
+					render += text[times-1];
+				}
+				if(tick > 360)
+					Game.game.state = 0;
+			}
+		}
+		
+		public void render(Graphics screen) {
+			screen.drawString(render, 120, 440);
+		}
+	}
+
+	PriorityQueue<TextDia> queue;
+	TextDia current;
+
+	public Dialog() {
+		queue = new PriorityQueue<TextDia>();
+	}
+
+	public void update() {
+		current.update();
+	}
+
+	public void render(Graphics screen) {
+		current.render(screen);
+	}
+
+	public void add(String string, Sprite sprite) {
+		queue.add(new TextDia(string, sprite));
+	}
+
+	public void remove() {
+
+	}
+	
+	public void next() {
+		current = queue.poll();
+	}
+}

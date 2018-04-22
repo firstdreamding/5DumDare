@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
@@ -20,6 +21,7 @@ public class Game extends Canvas implements Runnable {
 
 	private Thread thread;
 	private boolean running = false;
+	private Dialog dialog;
 
 	private JFrame frame;
 
@@ -52,6 +54,9 @@ public class Game extends Canvas implements Runnable {
 		level = new Level(SCALE);
 		//game.addKeyListener(level.getKeyboard());
 		level.setUpInput(frame);
+		state = 0;
+		dialog = new Dialog();
+		
 		start();
 	}
 
@@ -73,13 +78,19 @@ public class Game extends Canvas implements Runnable {
 		if(state == 0)
 			level.update();
 		else if(state == 2){
-			
+			dialog.update();
 		}
 	}
 
 	public void render() {
 		screen = getBufferStrategy().getDrawGraphics();
-		level.render(screen);
+		screen.setColor(Color.CYAN);
+		screen.fillRect(0, 0, 960, 540);
+		if(state == 0 || state == 2)
+			level.render(screen);
+		if(state == 2)
+			dialog.render(screen);
+		
 		screen.dispose();
 		getBufferStrategy().show();
 	}
@@ -142,5 +153,17 @@ public class Game extends Canvas implements Runnable {
 
 	public void setLevel(Level level) {
 		this.level = level;
+	}
+	
+	public void dialogAdd(String string, Sprite sprite) {
+		dialog.add(string, sprite);
+	}
+	
+	public void dialogStart() {
+		state = 2;
+	}
+	
+	public void dialogNext() {
+		dialog.next();
 	}
 }

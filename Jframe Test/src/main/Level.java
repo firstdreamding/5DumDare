@@ -44,8 +44,6 @@ public class Level {
 	}
 
 	public void render(Graphics screen) {
-		screen.setColor(Color.CYAN);
-		screen.fillRect(0, 0, 960, 540);
 		tileLevel.render(screen);
 		/*
 		for (int i = 0; i < 25; i++) {

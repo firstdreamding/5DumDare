@@ -1,0 +1,35 @@
+package main;
+
+import java.awt.Graphics;
+import java.util.PriorityQueue;
+
+public class Dialog {
+
+	private class TextDia {
+		
+		
+
+	}
+
+	PriorityQueue queue;
+
+	public Dialog() {
+		queue = new PriorityQueue<TextDia>();
+	}
+
+	public void update() {
+
+	}
+
+	public void render(Graphics screen) {
+		
+	}
+
+	public void add() {
+
+	}
+
+	public void remove() {
+
+	}
+}
