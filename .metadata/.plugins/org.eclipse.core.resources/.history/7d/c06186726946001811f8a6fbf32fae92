@@ -25,11 +25,11 @@ public class Entity {
 		return hitbox.contains(point);
 	}
 	
-	public void update(int x, int y) {
+	public void update() {
 		
 	}
 	
-	public void render(Graphics screen, int x, int y) {
+	public void render(Graphics screen) {
 		
 	}
 }

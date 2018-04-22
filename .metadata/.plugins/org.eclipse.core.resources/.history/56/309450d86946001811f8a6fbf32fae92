@@ -25,7 +25,7 @@ public class Entity {
 		return hitbox.contains(point);
 	}
 	
-	public void update(int x, int y) {
+	public void update() {
 		
 	}
 	

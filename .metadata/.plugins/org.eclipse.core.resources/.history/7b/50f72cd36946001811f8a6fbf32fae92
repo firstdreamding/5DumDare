@@ -23,10 +23,8 @@ public class TestSubject extends Entity{
 		
 	}
 	
-	public void update(int x, int y) {
-		hitbox.x = this.x + x;
-		hitbox.y = this.y + y;
-		System.out.println(hitbox.x + " " + hitbox.y + " " + x + " " + y);
+	public void update() {
+		
 	}
 	
 	public void render(Graphics screen, int x, int y) {

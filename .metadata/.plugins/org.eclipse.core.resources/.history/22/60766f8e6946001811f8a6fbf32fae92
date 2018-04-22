@@ -34,7 +34,7 @@ public class Level {
 		tileLevel.mapX(player.getMapX());
 		tileLevel.mapY(player.getMapY());
 		for(int i = 0; i < entities.size(); i++) {
-			entities.get(i).update(player.getMapX(), player.getMapY());
+			entities.get(i).update();
 		}	
 		if(System.currentTimeMillis()-counter > 1000) {
 			counter = System.currentTimeMillis();
@@ -54,7 +54,7 @@ public class Level {
 		}
 		*/
 		for(int i = 0; i < entities.size(); i++) {
-			entities.get(i).render(screen, player.getMapX(), player.getMapY());
+			entities.get(i).render(screen, player.getMapX(), player.getMapY());;
 		}
 		
 		player.render(screen);
