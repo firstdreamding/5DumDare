@@ -21,3 +21,4 @@
 *.rar
 
 dir_to_ignore/bin
+/bin/
