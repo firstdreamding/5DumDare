@@ -26,15 +26,19 @@ public class TestSubject extends Entity{
 	public void update(int x, int y) {
 		hitbox.x = this.x + x;
 		hitbox.y = this.y + y;
-		System.out.println(hitbox.x + " " + hitbox.y + " " + x + " " + y);
+		//System.out.println(hitbox.x + " " + hitbox.y + " " + x + " " + y);
 	}
 	
 	public void render(Graphics screen, int x, int y) {
 		screen.drawImage(sprite.getSprite(1,1), this.x + x, this.y + y, 32, 32, null);
+		screen.drawRect(hitbox.x, hitbox.y, hitbox.width, hitbox.height);
 	}
 	
 	public void interact() {
-		Game.game.dialogAdd("Hello, its me. I was wondering if all these times", new Sprite("mage", 1041));
+		System.out.println("lool");
+		Game.game.dialogAdd("Hello, its me. I was wondering if all these times", new Sprite("mage", 1041), 1);
+		Game.game.dialogAdd("I love you Geoffrey", new Sprite("mage", 1041), 2);
+		Game.game.dialogAdd("JK I FUCKING HATE U", new Sprite("mage", 1041), 3);
 		Game.game.dialogNext();
 		Game.game.dialogStart();
 	}
@@ -43,5 +47,9 @@ public class TestSubject extends Entity{
 		if(hitbox.contains(point)) {
 			interact();
 		}
+	}
+	
+	public boolean checkHitReturn(Point point) {
+		return hitbox.contains(point);
 	}
 }

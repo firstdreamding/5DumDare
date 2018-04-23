@@ -293,7 +293,21 @@ public class Player {
 		
 		pane.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke("E"), "interact");
 		pane.getActionMap().put("interact", new Talk());
+		
+		pane.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke("Q"), "dialog");
+		pane.getActionMap().put("dialog", new Next());
 
+	}
+	
+	private class Next extends AbstractAction {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(Game.game.state == 2) {
+				Game.game.dialogNext();
+			}		
+		}
+		
 	}
 
 	private class Talk extends AbstractAction {
