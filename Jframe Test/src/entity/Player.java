@@ -122,7 +122,7 @@ public class Player {
 						y += 2;
 				}
 			}
-			if (y % 32 == 0) {
+			if (y % 32 == 0 && mapY % 32 == 0) {
 				middleOfUp = false;
 				if (!up && animation != walkRight && animation != walkLeft) {
 					animation = standUp;
@@ -146,7 +146,7 @@ public class Player {
 				}
 			}
 
-			if (y % 32 == 0) {
+			if (y % 32 == 0 && mapY % 32 == 0) {
 				middleOfDown = false;
 				if (!down && animation != walkRight && animation != walkLeft) {
 					animation = standDown;

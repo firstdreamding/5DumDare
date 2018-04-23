@@ -170,4 +170,8 @@ public class Game extends Canvas implements Runnable {
 	public void dialogNext() {
 		dialog.next();
 	}
+	
+	public JFrame getFrame() {
+		return frame;
+	}
 }

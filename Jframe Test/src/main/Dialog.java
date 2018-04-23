@@ -3,7 +3,10 @@ package main;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.PriorityQueue;
+
+import javax.swing.JTextArea;
 
 public class Dialog {
 
@@ -16,6 +19,8 @@ public class Dialog {
 		int times;
 		int sort;
 		Font font;
+		ArrayList responce;
+		JTextArea test;
 		
 		public TextDia(String text, Sprite sprite, int sort) {
 			this.text = text.toCharArray();
@@ -25,6 +30,11 @@ public class Dialog {
 			render = "";
 			this.sort = sort;
 			font = new Font("Courier New", Font.BOLD, 24);
+			responce = new ArrayList<String>();
+		}
+		                                          
+		public void addResponce(String string) {
+			responce.add(string);
 		}
 		
 		public void update() {

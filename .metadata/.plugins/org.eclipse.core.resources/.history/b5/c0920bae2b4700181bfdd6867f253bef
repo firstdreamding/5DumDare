@@ -1,0 +1,55 @@
+package entity;
+
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.Rectangle;
+
+import main.Game;
+import main.Sprite;
+
+public class TestSubject extends Entity{
+
+	int x, y;
+	Sprite sprite;
+	Rectangle hitbox;
+	
+	
+	public TestSubject(int x, int y, int width, int height, Sprite sprite) {
+		super(x, y, width, height, sprite);
+		this.sprite = sprite;
+		this.x = x;
+		this.y = y;
+		hitbox = new Rectangle(x, y, width, height);
+		
+	}
+	
+	public void update(int x, int y) {
+		hitbox.x = this.x + x;
+		hitbox.y = this.y + y;
+		//System.out.println(hitbox.x + " " + hitbox.y + " " + x + " " + y);
+	}
+	
+	public void render(Graphics screen, int x, int y) {
+		screen.drawImage(sprite.getSprite(1,1), this.x + x, this.y + y, 32, 32, null);
+		screen.drawRect(hitbox.x, hitbox.y, hitbox.width, hitbox.height);
+	}
+	
+	public void interact() {
+		System.out.println("lool");
+		Game.game.dialogAdd("Hello, its me. I was wondering if all these times", new Sprite("mage", 1041), 1);
+		Game.game.dialogAdd("I love you Geoffrey", new Sprite("mage", 1041), 2);
+		Game.game.dialogAdd("JK I FUCKING HATE U", new Sprite("mage", 1041), 3);
+		Game.game.dialogNext();
+		Game.game.dialogStart();
+	}
+	
+	public void checkHit(Point point) {
+		if(hitbox.contains(point)) {
+			interact();
+		}
+	}
+	
+	public boolean checkHitReturn(Point point) {
+		return hitbox.contains(point);
+	}
+}

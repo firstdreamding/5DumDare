@@ -23,7 +23,7 @@ public class Level {
 		player = new Player(scale);
 		tileLevel = new TileLevel();
 		entities = new ArrayList<Entity>();
-		entities.add(new TestSubject(640, 320, 32, 32, new Sprite("spriteSheet", 32)));
+		entities.add(new TestSubject(640, 320, 32, 32));
 		counter = System.currentTimeMillis();
 		tick = 0;
 	}
@@ -45,14 +45,14 @@ public class Level {
 
 	public void render(Graphics screen) {
 		tileLevel.render(screen);
-		/*
-		for (int i = 0; i < 25; i++) {
-			for (int j = 0; j < 15; j++) {
+		
+		for (int i = 0; i < 31; i++) {
+			for (int j = 0; j < 20; j++) {
 				screen.setColor(Color.black);
-				screen.drawRect(i * 32, j*32, 32, 32);
+				screen.drawRect(i * 32 + player.getMapX() % 32, j*32 + player.getMapY() % 32, 32, 32);
 			}
 		}
-		*/
+		
 		for(int i = 0; i < entities.size(); i++) {
 			entities.get(i).render(screen, player.getMapX(), player.getMapY());
 		}
