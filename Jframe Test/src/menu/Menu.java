@@ -2,6 +2,8 @@ package menu;
 
 import java.awt.Graphics;
 
+import javax.swing.JFrame;
+
 public class Menu {
 	public void render(Graphics g) {
 		
@@ -11,6 +13,10 @@ public class Menu {
 	}
 	
 	public void keyPressed(int code) {
+		
+	}
+	
+	public void setUpInput(JFrame frame) {
 		
 	}
 }
