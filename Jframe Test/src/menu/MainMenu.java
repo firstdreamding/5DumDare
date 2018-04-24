@@ -59,7 +59,7 @@ public class MainMenu extends Menu {
 			e.printStackTrace();
 		}
 		
-		X0 = 720;
+		X0 = 710;
 		Y0 = 40;
 		X1 = 740;
 		Y1 = 90;
@@ -196,7 +196,7 @@ public class MainMenu extends Menu {
 				break;
 			// continue game
 			case 1:
-				
+				showUnimplemented = true;
 				break;
 			// options
 			case 2:
