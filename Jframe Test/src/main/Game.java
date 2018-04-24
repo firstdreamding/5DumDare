@@ -7,6 +7,9 @@ import java.awt.Graphics;
 
 import javax.swing.JFrame;
 
+import menu.MainMenu;
+import menu.Menu;
+
 public class Game extends Canvas implements Runnable {
 
 	/**
@@ -28,6 +31,7 @@ public class Game extends Canvas implements Runnable {
 	private boolean isPause;
 	private Graphics screen;
 	private Level level;
+	private Menu menu;
 	public static Game game;
 	
 	public int state;
@@ -54,7 +58,9 @@ public class Game extends Canvas implements Runnable {
 		level = new Level(SCALE);
 		//game.addKeyListener(level.getKeyboard());
 		level.setUpInput(frame);
-		state = 0;
+		menu = new MainMenu();
+		menu.setUpInput(frame);
+		state = 1;
 		dialog = new Dialog();
 		
 		start();
@@ -77,6 +83,9 @@ public class Game extends Canvas implements Runnable {
 	public void update() {
 		if(state == 0)
 			level.update();
+		else if(state == 1) {
+			menu.update();
+		}
 		else if(state == 2){
 			dialog.update();
 		}
@@ -94,7 +103,9 @@ public class Game extends Canvas implements Runnable {
 			screen.fillRect(0, 0, 960, 540);
 			dialog.render(screen);
 		}
-		
+		if(state == 1) {
+			menu.render(screen);
+		}
 		screen.dispose();
 		getBufferStrategy().show();
 	}
