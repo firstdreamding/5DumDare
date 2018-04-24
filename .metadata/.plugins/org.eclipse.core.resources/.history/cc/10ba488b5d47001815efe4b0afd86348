@@ -127,6 +127,7 @@ public class TestSubject extends Entity {
 		System.out.println("lool");
 		Game.game.dialogAdd("Hello, its me. I was wondering if all these times", new Sprite("mage", 1041), 1);
 		Game.game.dialogAdd("I love you Geoffrey", new Sprite("mage", 1041), 2);
+		Game.game.dialogAdd("JK I FUCKING HATE U", new Sprite("mage", 1041), 3);
 		Game.game.dialogNext();
 		Game.game.dialogStart();
 	}
