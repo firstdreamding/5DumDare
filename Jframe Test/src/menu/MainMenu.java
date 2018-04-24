@@ -25,6 +25,8 @@ public class MainMenu extends Menu {
 	private boolean showControls;
 	private boolean showDumb;
 	
+	public static boolean disableHotkeys;
+	
 	private Image unimplemented;
 	private Image mainmenu;
 	private Image selector;
@@ -45,6 +47,8 @@ public class MainMenu extends Menu {
 		showOptions = false;
 		showControls = false;
 		showDumb = false;
+		
+		disableHotkeys = false;
 		
 		try {
 			unimplemented = ImageIO.read(this.getClass().getResource("/res/unimplemented.png"));
@@ -193,6 +197,7 @@ public class MainMenu extends Menu {
 			// new game
 			case 0:
 				Game.game.state = 0;
+				disableHotkeys = true;
 				break;
 			// continue game
 			case 1:

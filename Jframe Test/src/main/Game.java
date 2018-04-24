@@ -59,7 +59,7 @@ public class Game extends Canvas implements Runnable {
 		//game.addKeyListener(level.getKeyboard());
 		level.setUpInput(frame);
 		menu = new MainMenu();
-		menu.setUpInput(frame);
+		if (!MainMenu.disableHotkeys) menu.setUpInput(frame);
 		state = 1;
 		dialog = new Dialog();
 		
